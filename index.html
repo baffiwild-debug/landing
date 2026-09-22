@@ -2,108 +2,752 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reindirizzamento in corso...</title>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<title>Partecipa alla Community</title>
+
 <style>
-  /* Stile minimale e pulito per la pagina ponte */
-  html, body {
+
+  html,
+  body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     background-color: #f7f9fa;
-    font-family: 'Roboto', sans-serif;
+
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Arial,
+      sans-serif;
   }
 
   .contenitore {
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: 620px;
+
+    padding: 24px;
+
     text-align: center;
-    padding: 20px;
   }
 
-  /* Animazione "respiro" (Pulse) per il pulsante */
+
+  /* ============================================================
+     ANIMAZIONE
+     ============================================================ */
+
   @keyframes respiro {
-    0% { transform: scale(1); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
-    50% { transform: scale(1.05); box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4); }
-    100% { transform: scale(1); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+
+    0% {
+      transform: scale(1);
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.30);
+    }
+
+    50% {
+      transform: scale(1.045);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.42);
+    }
+
+    100% {
+      transform: scale(1);
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.30);
+    }
+
   }
+
+
+  /* ============================================================
+     PULSANTE
+     ============================================================ */
 
   .pulsante-whatsapp {
     box-sizing: border-box;
-    background-color: #25D366; 
-    color: white;
-    padding: 16px 36px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: 0;
+
+    background-color: #25D366;
+    color: #ffffff;
+
+    padding: 16px 32px;
+
     font-size: 18px;
-    font-weight: 500;
-    border: none;
-    border-radius: 30px;
+    line-height: 1.2;
+    font-weight: 600;
+
+    border-radius: 999px;
+
     cursor: pointer;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     gap: 12px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+
+    max-width: 100%;
+
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.30);
+
     animation: respiro 2s infinite ease-in-out;
-    transition: background-color 0.2s, transform 0.1s;
+
+    transition:
+      background-color 0.2s ease,
+      transform 0.1s ease;
   }
-  
+
+
   .pulsante-whatsapp:hover {
     background-color: #128C7E;
-    animation: none;
-    transform: scale(1.02);
   }
-  
+
+
   .pulsante-whatsapp:active {
     transform: scale(0.98);
+    animation: none;
   }
+
+
+  .pulsante-whatsapp:disabled {
+    cursor: default;
+    opacity: 0.8;
+    animation: none;
+  }
+
 
   .icona-wa {
     width: 26px;
     height: 26px;
+
     fill: currentColor;
+
     flex-shrink: 0;
   }
 
-  p {
+
+  .messaggio {
+    margin: 20px 0 0;
+
     color: #555;
-    margin-top: 20px;
+
     font-size: 14px;
+    line-height: 1.5;
   }
+
+
+  .stato {
+    min-height: 20px;
+
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+
+  /* Rispetta chi ha disattivato le animazioni */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .pulsante-whatsapp {
+      animation: none;
+      transition: none;
+    }
+
+  }
+
+
+  /* Smartphone molto stretti */
+
+  @media (max-width: 420px) {
+
+    .pulsante-whatsapp {
+      width: 100%;
+
+      padding-left: 20px;
+      padding-right: 20px;
+
+      font-size: 16px;
+    }
+
+  }
+
 </style>
 </head>
+
+
 <body>
 
 <div class="contenitore">
-  <!-- Cliccando si attiva la funzione JavaScript di doppio redirect -->
-  <button class="pulsante-whatsapp" onclick="gestisciDoppioRedirect()">
-    <svg class="icona-wa" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+
+  <button
+    id="pulsanteWhatsapp"
+    class="pulsante-whatsapp"
+    type="button"
+  >
+
+    <svg
+      class="icona-wa"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+      />
+
     </svg>
-    PARTECIPA ALLA COMMUNITY
+
+    <span>PARTECIPA ALLA COMMUNITY</span>
+
   </button>
-  <p>Verrai reindirizzato al gruppo e alla pagina di benvenuto</p>
+
+
+  <p class="messaggio">
+    Verrai indirizzato al gruppo WhatsApp e successivamente
+    alla pagina di benvenuto.
+  </p>
+
+
+  <div
+    id="stato"
+    class="stato"
+    aria-live="polite"
+  ></div>
+
 </div>
 
+
 <script>
-function gestisciDoppioRedirect() {
-  var linkWhatsApp = "https://chat.whatsapp.com/I9X4C4mA7lfI0BU7ljgGYw";
-  var paginaBenvenuto = "https://sites.google.com/view/trekking-eventi-gratis/benvenuto";
 
-  // 1. Apre il gruppo WhatsApp in una nuova scheda
-  var popup = window.open(linkWhatsApp, '_blank');
+(function () {
 
-  // 2. Controllo blocco pop-up (gestito in modo pulito fuori da Google Sites)
-  if (!popup || popup.closed || typeof popup.closed === 'undefined') {
-    alert("Il tuo browser ha bloccato l'apertura della chat. Clicca OK per procedere.");
+  "use strict";
+
+
+  /* ============================================================
+     CONFIGURAZIONE
+     ============================================================ */
+
+  const LINK_WHATSAPP =
+    "https://chat.whatsapp.com/I9X4C4mA7lfI0BU7ljgGYw";
+
+  const PAGINA_BENVENUTO =
+    "https://sites.google.com/view/trekking-eventi-gratis/benvenuto";
+
+
+  /*
+   * Il marker serve esclusivamente a capire che questa pagina
+   * ha già tentato di mandare l'utente verso WhatsApp.
+   */
+
+  const STORAGE_KEY =
+    "community_whatsapp_redirect_v2";
+
+  /*
+   * Dopo 15 minuti consideriamo il tentativo scaduto.
+   * Evita redirect strani se la scheda viene riaperta molto dopo.
+   */
+
+  const DURATA_MARKER_MS =
+    15 * 60 * 1000;
+
+
+  const pulsante =
+    document.getElementById("pulsanteWhatsapp");
+
+  const stato =
+    document.getElementById("stato");
+
+
+  let aperturaInCorso = false;
+
+  let paginaDiventataNascosta = false;
+
+  let redirectEseguito = false;
+
+
+  /* ============================================================
+     IDENTIFICAZIONE MOBILE / TABLET
+     ============================================================ */
+
+  function dispositivoMobileOTablet() {
+
+    const ua = navigator.userAgent || "";
+
+    /*
+     * Android / iPhone / iPad classici.
+     */
+
+    if (
+      /Android|iPhone|iPad|iPod/i.test(ua)
+    ) {
+      return true;
+    }
+
+
+    /*
+     * iPadOS moderno può dichiararsi come Macintosh.
+     *
+     * navigator.maxTouchPoints > 1 ci permette di distinguerlo
+     * normalmente da un Mac desktop.
+     */
+
+    if (
+      navigator.platform === "MacIntel" &&
+      navigator.maxTouchPoints > 1
+    ) {
+      return true;
+    }
+
+
+    return false;
   }
 
-  // 3. Reindirizza questa Pagina Ponte direttamente alla pagina di benvenuto di Google Sites
-  setTimeout(function() {
-    window.location.href = paginaBenvenuto;
-  }, 300); // Piccolo ritardo di 300ms per permettere al browser di avviare l'apertura della nuova scheda
-}
+
+  /* ============================================================
+     STORAGE SICURO
+     ============================================================ */
+
+  function salvaMarker() {
+
+    try {
+
+      sessionStorage.setItem(
+        STORAGE_KEY,
+        String(Date.now())
+      );
+
+    } catch (errore) {
+
+      /*
+       * Alcune WebView/privacy mode possono limitare storage.
+       * Il redirect continua comunque a funzionare nella sessione.
+       */
+
+    }
+
+  }
+
+
+  function leggiMarker() {
+
+    try {
+
+      const valore =
+        sessionStorage.getItem(STORAGE_KEY);
+
+      if (!valore) {
+        return null;
+      }
+
+
+      const timestamp =
+        Number(valore);
+
+
+      if (!Number.isFinite(timestamp)) {
+
+        sessionStorage.removeItem(STORAGE_KEY);
+
+        return null;
+      }
+
+
+      if (
+        Date.now() - timestamp >
+        DURATA_MARKER_MS
+      ) {
+
+        sessionStorage.removeItem(STORAGE_KEY);
+
+        return null;
+      }
+
+
+      return timestamp;
+
+    } catch (errore) {
+
+      return null;
+
+    }
+
+  }
+
+
+  function cancellaMarker() {
+
+    try {
+
+      sessionStorage.removeItem(STORAGE_KEY);
+
+    } catch (errore) {
+
+      /* niente */
+
+    }
+
+  }
+
+
+  /* ============================================================
+     PAGINA DI BENVENUTO
+     ============================================================ */
+
+  function vaiAllaPaginaBenvenuto() {
+
+    if (redirectEseguito) {
+      return;
+    }
+
+
+    redirectEseguito = true;
+
+    cancellaMarker();
+
+
+    /*
+     * replace() è preferibile a href:
+     *
+     * impedisce che premendo INDIETRO si crei un loop
+     * Benvenuto → Ponte → Benvenuto.
+     */
+
+    window.location.replace(
+      PAGINA_BENVENUTO
+    );
+
+  }
+
+
+  /* ============================================================
+     MOBILE
+     ============================================================ */
+
+  function aperturaMobile() {
+
+    aperturaInCorso = true;
+
+    paginaDiventataNascosta = false;
+
+    salvaMarker();
+
+
+    stato.textContent =
+      "Apertura di WhatsApp…";
+
+
+    /*
+     * IMPORTANTISSIMO:
+     *
+     * niente window.open()
+     * niente _blank
+     * niente popup artificiale
+     *
+     * La navigazione parte direttamente dal click dell'utente.
+     */
+
+    window.location.href =
+      LINK_WHATSAPP;
+
+  }
+
+
+  /* ============================================================
+     DESKTOP
+     ============================================================ */
+
+  function aperturaDesktop() {
+
+    /*
+     * Qui window.open viene eseguito DIRETTAMENTE
+     * dentro il click reale dell'utente.
+     *
+     * È il caso consentito dai moderni popup blocker.
+     */
+
+    const schedaWhatsApp =
+      window.open(
+        LINK_WHATSAPP,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+
+    /*
+     * Se il browser accetta la nuova scheda:
+     *
+     * 1. WhatsApp rimane nella nuova scheda.
+     * 2. Questa scheda diventa Benvenuto.
+     */
+
+    if (schedaWhatsApp) {
+
+      stato.textContent =
+        "WhatsApp aperto. Caricamento della pagina di benvenuto…";
+
+
+      /*
+       * Piccolissimo differimento soltanto per permettere
+       * al browser di completare la creazione della scheda.
+       *
+       * NON serve ad aggirare il popup blocker.
+       */
+
+      window.setTimeout(
+        vaiAllaPaginaBenvenuto,
+        120
+      );
+
+      return;
+
+    }
+
+
+    /*
+     * Popup bloccato:
+     *
+     * non lasciamo l'utente senza WhatsApp.
+     *
+     * Passiamo automaticamente alla stessa strategia
+     * sicura usata sui dispositivi mobili.
+     */
+
+    aperturaMobile();
+
+  }
+
+
+  /* ============================================================
+     CLICK
+     ============================================================ */
+
+  pulsante.addEventListener(
+    "click",
+    function () {
+
+      if (aperturaInCorso) {
+        return;
+      }
+
+
+      pulsante.disabled = true;
+
+
+      if (dispositivoMobileOTablet()) {
+
+        aperturaMobile();
+
+      } else {
+
+        aperturaDesktop();
+
+      }
+
+    }
+  );
+
+
+  /* ============================================================
+     RITORNO DALL'APP SU MOBILE
+     ============================================================ */
+
+  document.addEventListener(
+    "visibilitychange",
+    function () {
+
+      /*
+       * WhatsApp viene aperto come app esterna.
+       *
+       * Il browser normalmente passa:
+       *
+       * visible
+       *    ↓
+       * hidden
+       *    ↓
+       * APP WHATSAPP
+       *    ↓
+       * visible
+       *
+       * Aspettiamo ESPLICITAMENTE di aver visto "hidden"
+       * prima di mandare l'utente alla pagina Benvenuto.
+       */
+
+      if (
+        document.visibilityState === "hidden"
+      ) {
+
+        if (
+          aperturaInCorso ||
+          leggiMarker()
+        ) {
+
+          paginaDiventataNascosta = true;
+
+        }
+
+        return;
+      }
+
+
+      if (
+        document.visibilityState === "visible" &&
+        paginaDiventataNascosta &&
+        leggiMarker()
+      ) {
+
+        vaiAllaPaginaBenvenuto();
+
+      }
+
+    }
+  );
+
+
+  /* ============================================================
+     PAGESHOW / BFCACHE
+     ============================================================ */
+
+  window.addEventListener(
+    "pageshow",
+    function (evento) {
+
+      /*
+       * Safari/iOS utilizza molto il Back/Forward Cache.
+       *
+       * Se questa pagina viene congelata mentre si apre WhatsApp
+       * e poi ripristinata, pageshow può essere il primo evento
+       * affidabile disponibile.
+       */
+
+      if (
+        evento.persisted &&
+        leggiMarker()
+      ) {
+
+        vaiAllaPaginaBenvenuto();
+
+      }
+
+    }
+  );
+
+
+  /* ============================================================
+     FOCUS - FALLBACK
+     ============================================================ */
+
+  window.addEventListener(
+    "focus",
+    function () {
+
+      /*
+       * Alcune WebView/browser non producono la sequenza
+       * visibilitychange esattamente come Safari.
+       *
+       * Usiamo focus solamente se sappiamo che la pagina
+       * era realmente diventata nascosta.
+       */
+
+      if (
+        paginaDiventataNascosta &&
+        leggiMarker()
+      ) {
+
+        vaiAllaPaginaBenvenuto();
+
+      }
+
+    }
+  );
+
+
+  /* ============================================================
+     RIPRISTINO DOPO BACK DEL BROWSER
+     ============================================================ */
+
+  /*
+   * Caso:
+   *
+   * WhatsApp non è installato.
+   *
+   * Il browser carica chat.whatsapp.com nella stessa scheda.
+   * Successivamente l'utente preme INDIETRO.
+   *
+   * La pagina ponte viene caricata/ripristinata e trova
+   * il marker ancora presente.
+   *
+   * Non facciamo però redirect immediato al primo caricamento:
+   * diamo al browser il tempo di determinare se questa pagina
+   * proviene dal BFCache.
+   */
+
+  const markerEsistente =
+    leggiMarker();
+
+
+  if (markerEsistente) {
+
+    /*
+     * Se il marker è presente da almeno 1 secondo,
+     * significa che non siamo nel click iniziale.
+     */
+
+    const etaMarker =
+      Date.now() - markerEsistente;
+
+
+    if (etaMarker > 1000) {
+
+      window.setTimeout(
+        function () {
+
+          if (
+            document.visibilityState === "visible" &&
+            leggiMarker()
+          ) {
+
+            vaiAllaPaginaBenvenuto();
+
+          }
+
+        },
+        100
+      );
+
+    }
+
+  }
+
+
+})();
+
 </script>
 
 </body>
