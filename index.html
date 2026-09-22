@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -8,9 +9,22 @@
   content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<title>Partecipa alla Community</title>
+<meta
+  name="theme-color"
+  content="#f5f8f6"
+>
+
+<title>Entra nella Community WILDU</title>
 
 <style>
+
+  /* =========================================================
+     BASE
+     ========================================================= */
+
+  * {
+    box-sizing: border-box;
+  }
 
   html,
   body {
@@ -25,10 +39,22 @@
     min-height: 100dvh;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    background-color: #f7f9fa;
+    padding:
+      max(20px, env(safe-area-inset-top))
+      max(18px, env(safe-area-inset-right))
+      max(20px, env(safe-area-inset-bottom))
+      max(18px, env(safe-area-inset-left));
+
+    background:
+      radial-gradient(
+        circle at top,
+        #ffffff 0%,
+        #f8faf9 42%,
+        #eef4f0 100%
+      );
 
     font-family:
       -apple-system,
@@ -37,108 +63,189 @@
       Roboto,
       Arial,
       sans-serif;
+
+    color: #243129;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
+
+  /* =========================================================
+     CONTENITORE
+     ========================================================= */
+
   .contenitore {
-    box-sizing: border-box;
-
     width: 100%;
-    max-width: 620px;
-
-    padding: 24px;
+    max-width: 500px;
 
     text-align: center;
   }
 
+  .card {
+    width: 100%;
 
-  /* ============================================================
-     ANIMAZIONE
-     ============================================================ */
+    padding: 30px 24px 24px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border:
+      1px solid
+      rgba(36, 86, 56, 0.09);
+
+    border-radius: 24px;
+
+    box-shadow:
+      0 14px 42px
+      rgba(32, 74, 47, 0.09);
+  }
+
+
+  /* =========================================================
+     LOGO WILDU
+     ========================================================= */
+
+  .logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 15px;
+  }
+
+  .logo-wildu {
+    display: block;
+
+    width: 68px;
+    height: 68px;
+
+    max-width: 100%;
+
+    object-fit: contain;
+  }
+
+
+  /* =========================================================
+     TESTI
+     ========================================================= */
+
+  h1 {
+    margin: 0;
+
+    font-size: 24px;
+    line-height: 1.22;
+    font-weight: 700;
+
+    letter-spacing: -0.3px;
+
+    color: #203128;
+  }
+
+  .intro {
+    max-width: 390px;
+
+    margin: 9px auto 23px;
+
+    color: #67736c;
+
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+
+  /* =========================================================
+     PULSANTE WHATSAPP
+     ========================================================= */
 
   @keyframes respiro {
 
     0% {
       transform: scale(1);
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.30);
+
+      box-shadow:
+        0 5px 17px
+        rgba(37, 211, 102, 0.27);
     }
 
     50% {
-      transform: scale(1.045);
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.42);
+      transform: scale(1.035);
+
+      box-shadow:
+        0 10px 24px
+        rgba(37, 211, 102, 0.39);
     }
 
     100% {
       transform: scale(1);
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.30);
+
+      box-shadow:
+        0 5px 17px
+        rgba(37, 211, 102, 0.27);
     }
 
   }
 
-
-  /* ============================================================
-     PULSANTE
-     ============================================================ */
-
   .pulsante-whatsapp {
-    box-sizing: border-box;
+    width: 100%;
 
     appearance: none;
     -webkit-appearance: none;
 
-    border: 0;
+    border: none;
 
-    background-color: #25D366;
-    color: #ffffff;
-
-    padding: 16px 32px;
-
-    font-size: 18px;
-    line-height: 1.2;
-    font-weight: 600;
+    padding: 16px 20px;
 
     border-radius: 999px;
 
-    cursor: pointer;
+    background: #25D366;
+    color: #ffffff;
 
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 12px;
+    gap: 11px;
 
-    max-width: 100%;
+    font-size: 16.5px;
+    line-height: 1.2;
+    font-weight: 700;
 
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.30);
+    cursor: pointer;
 
-    animation: respiro 2s infinite ease-in-out;
+    box-shadow:
+      0 5px 17px
+      rgba(37, 211, 102, 0.27);
+
+    animation:
+      respiro 2.2s
+      infinite ease-in-out;
 
     transition:
       background-color 0.2s ease,
-      transform 0.1s ease;
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
   }
-
 
   .pulsante-whatsapp:hover {
-    background-color: #128C7E;
+    background: #20bd5a;
   }
-
 
   .pulsante-whatsapp:active {
     transform: scale(0.98);
     animation: none;
   }
 
-
   .pulsante-whatsapp:disabled {
+    opacity: 0.78;
+
     cursor: default;
-    opacity: 0.8;
+
     animation: none;
   }
 
-
   .icona-wa {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
 
     fill: currentColor;
 
@@ -146,51 +253,168 @@
   }
 
 
-  .messaggio {
-    margin: 20px 0 0;
-
-    color: #555;
-
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
+  /* =========================================================
+     STATO
+     ========================================================= */
 
   .stato {
-    min-height: 20px;
+    min-height: 18px;
 
-    margin-top: 12px;
+    margin-top: 11px;
 
-    color: #777;
+    color: #7a857e;
 
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.4;
   }
 
 
-  /* Rispetta chi ha disattivato le animazioni */
+  /* =========================================================
+     BOX INFORMATIVO
+     ========================================================= */
 
-  @media (prefers-reduced-motion: reduce) {
+  .info {
+    margin-top: 17px;
+
+    padding: 16px 16px 15px;
+
+    background: #f6faf7;
+
+    border:
+      1px solid
+      rgba(38, 100, 58, 0.06);
+
+    border-radius: 15px;
+
+    color: #56645b;
+
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .info strong {
+    color: #31513b;
+    font-weight: 700;
+  }
+
+  .nota-liberta {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #69766e;
+  }
+
+
+  /* =========================================================
+     TORNA INDIETRO
+     ========================================================= */
+
+  .separatore {
+    width: 58px;
+    height: 1px;
+
+    margin: 21px auto 14px;
+
+    background: #e3e9e5;
+  }
+
+  .pulsante-indietro {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 8px 12px;
+
+    border-radius: 9px;
+
+    color: #657169;
+
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .pulsante-indietro:hover {
+    color: #315a3e;
+    background: #f2f6f3;
+  }
+
+  .freccia {
+    font-size: 17px;
+    line-height: 1;
+  }
+
+
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+
+  @media (max-width: 420px) {
+
+    body {
+      align-items: center;
+
+      padding:
+        max(14px, env(safe-area-inset-top))
+        max(14px, env(safe-area-inset-right))
+        max(14px, env(safe-area-inset-bottom))
+        max(14px, env(safe-area-inset-left));
+    }
+
+    .card {
+      padding: 26px 18px 20px;
+
+      border-radius: 21px;
+    }
+
+    .logo-wildu {
+      width: 62px;
+      height: 62px;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .intro {
+      font-size: 14px;
+
+      margin-bottom: 21px;
+    }
 
     .pulsante-whatsapp {
-      animation: none;
-      transition: none;
+      padding: 15px 17px;
+
+      font-size: 15.5px;
+    }
+
+    .info {
+      font-size: 13px;
     }
 
   }
 
 
-  /* Smartphone molto stretti */
+  /* =========================================================
+     ACCESSIBILITÀ
+     ========================================================= */
 
-  @media (max-width: 420px) {
+  @media (prefers-reduced-motion: reduce) {
 
     .pulsante-whatsapp {
-      width: 100%;
+      animation: none;
 
-      padding-left: 20px;
-      padding-right: 20px;
-
-      font-size: 16px;
+      transition: none;
     }
 
   }
@@ -203,42 +427,115 @@
 
 <div class="contenitore">
 
-  <button
-    id="pulsanteWhatsapp"
-    class="pulsante-whatsapp"
-    type="button"
-  >
+  <main class="card">
 
-    <svg
-      class="icona-wa"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      focusable="false"
-      xmlns="http://www.w3.org/2000/svg"
+    <!-- =====================================================
+         LOGO WILDU REALE
+         ===================================================== -->
+
+    <div class="logo-wrap">
+
+      <img
+        class="logo-wildu"
+        src="https://res.cloudinary.com/daiyrgmbb/image/upload/v1773848193/icona_trasp_bocyr5.png"
+        alt="WILDU"
+      >
+
+    </div>
+
+
+    <!-- =====================================================
+         TESTO
+         ===================================================== -->
+
+    <h1>
+      Entra nella Community
+    </h1>
+
+    <p class="intro">
+      Un ultimo passaggio e sei dei nostri.
+    </p>
+
+
+    <!-- =====================================================
+         WHATSAPP
+         ===================================================== -->
+
+    <button
+      id="pulsanteWhatsapp"
+      class="pulsante-whatsapp"
+      type="button"
     >
 
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-      />
+      <svg
+        class="icona-wa"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+        xmlns="http://www.w3.org/2000/svg"
+      >
 
-    </svg>
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        />
 
-    <span>PARTECIPA ALLA COMMUNITY</span>
+      </svg>
 
-  </button>
+      <span>
+        PARTECIPA ALLA COMMUNITY
+      </span>
 
-
-  <p class="messaggio">
-    Verrai indirizzato al gruppo WhatsApp e successivamente
-    alla pagina di benvenuto.
-  </p>
+    </button>
 
 
-  <div
-    id="stato"
-    class="stato"
-    aria-live="polite"
-  ></div>
+    <div
+      id="stato"
+      class="stato"
+      aria-live="polite"
+    ></div>
+
+
+    <!-- =====================================================
+         BENEFICI ESSENZIALI
+         ===================================================== -->
+
+    <div class="info">
+
+      Una volta entrato potrai accedere a
+      <strong>
+        tutti gli eventi, compresi quelli gratuiti,
+      </strong>
+      oltre a materiali e giochi riservati alla community.
+
+      <span class="nota-liberta">
+        La community è ordinata e gestita:
+        potrai sempre silenziarla o lasciarla quando vuoi.
+      </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         TORNA ALLA HOME
+         ===================================================== -->
+
+    <div class="separatore"></div>
+
+    <a
+      class="pulsante-indietro"
+      href="https://sites.google.com/view/trekking-eventi-gratis/home"
+    >
+      <span
+        class="freccia"
+        aria-hidden="true"
+      >
+        ←
+      </span>
+
+      Torna indietro
+    </a>
+
+  </main>
 
 </div>
 
@@ -250,9 +547,9 @@
   "use strict";
 
 
-  /* ============================================================
-     CONFIGURAZIONE
-     ============================================================ */
+  /* =========================================================
+     URL REALI
+     ========================================================= */
 
   const LINK_WHATSAPP =
     "https://chat.whatsapp.com/I9X4C4mA7lfI0BU7ljgGYw";
@@ -261,18 +558,12 @@
     "https://sites.google.com/view/trekking-eventi-gratis/benvenuto";
 
 
-  /*
-   * Il marker serve esclusivamente a capire che questa pagina
-   * ha già tentato di mandare l'utente verso WhatsApp.
-   */
+  /* =========================================================
+     CONFIGURAZIONE INTERNA
+     ========================================================= */
 
   const STORAGE_KEY =
-    "community_whatsapp_redirect_v2";
-
-  /*
-   * Dopo 15 minuti consideriamo il tentativo scaduto.
-   * Evita redirect strani se la scheda viene riaperta molto dopo.
-   */
+    "wildu_community_whatsapp_redirect_v4";
 
   const DURATA_MARKER_MS =
     15 * 60 * 1000;
@@ -292,47 +583,54 @@
   let redirectEseguito = false;
 
 
-  /* ============================================================
-     IDENTIFICAZIONE MOBILE / TABLET
-     ============================================================ */
+  /* =========================================================
+     RILEVAMENTO MOBILE / TABLET
+     ========================================================= */
 
   function dispositivoMobileOTablet() {
 
-    const ua = navigator.userAgent || "";
+    const userAgent =
+      navigator.userAgent || "";
+
 
     /*
-     * Android / iPhone / iPad classici.
+     * iPhone / iPad / Android classici.
      */
 
     if (
-      /Android|iPhone|iPad|iPod/i.test(ua)
+      /Android|iPhone|iPad|iPod/i.test(userAgent)
     ) {
+
       return true;
+
     }
 
 
     /*
-     * iPadOS moderno può dichiararsi come Macintosh.
+     * iPadOS moderno può presentarsi come Macintosh.
      *
-     * navigator.maxTouchPoints > 1 ci permette di distinguerlo
-     * normalmente da un Mac desktop.
+     * Il controllo touch evita normalmente di confonderlo
+     * con un Mac desktop tradizionale.
      */
 
     if (
       navigator.platform === "MacIntel" &&
       navigator.maxTouchPoints > 1
     ) {
+
       return true;
+
     }
 
 
     return false;
+
   }
 
 
-  /* ============================================================
-     STORAGE SICURO
-     ============================================================ */
+  /* =========================================================
+     STORAGE
+     ========================================================= */
 
   function salvaMarker() {
 
@@ -346,8 +644,10 @@
     } catch (errore) {
 
       /*
-       * Alcune WebView/privacy mode possono limitare storage.
-       * Il redirect continua comunque a funzionare nella sessione.
+       * Alcune WebView o modalità privacy possono limitare
+       * sessionStorage.
+       *
+       * La navigazione verso WhatsApp continua comunque.
        */
 
     }
@@ -362,8 +662,11 @@
       const valore =
         sessionStorage.getItem(STORAGE_KEY);
 
+
       if (!valore) {
+
         return null;
+
       }
 
 
@@ -376,8 +679,14 @@
         sessionStorage.removeItem(STORAGE_KEY);
 
         return null;
+
       }
 
+
+      /*
+       * Un marker vecchio non deve provocare redirect
+       * molto tempo dopo.
+       */
 
       if (
         Date.now() - timestamp >
@@ -387,6 +696,7 @@
         sessionStorage.removeItem(STORAGE_KEY);
 
         return null;
+
       }
 
 
@@ -409,34 +719,40 @@
 
     } catch (errore) {
 
-      /* niente */
+      /*
+       * Nessuna azione necessaria.
+       */
 
     }
 
   }
 
 
-  /* ============================================================
-     PAGINA DI BENVENUTO
-     ============================================================ */
+  /* =========================================================
+     REDIRECT FINALE
+     ========================================================= */
 
   function vaiAllaPaginaBenvenuto() {
 
     if (redirectEseguito) {
+
       return;
+
     }
 
 
     redirectEseguito = true;
 
+
     cancellaMarker();
 
 
     /*
-     * replace() è preferibile a href:
+     * replace() evita di lasciare la pagina ponte
+     * nella cronologia immediatamente precedente.
      *
-     * impedisce che premendo INDIETRO si crei un loop
-     * Benvenuto → Ponte → Benvenuto.
+     * In questo modo il pulsante "indietro" del browser
+     * ha meno probabilità di creare un loop.
      */
 
     window.location.replace(
@@ -446,15 +762,16 @@
   }
 
 
-  /* ============================================================
-     MOBILE
-     ============================================================ */
+  /* =========================================================
+     STRATEGIA MOBILE
+     ========================================================= */
 
   function aperturaMobile() {
 
     aperturaInCorso = true;
 
     paginaDiventataNascosta = false;
+
 
     salvaMarker();
 
@@ -464,66 +781,79 @@
 
 
     /*
-     * IMPORTANTISSIMO:
+     * Su mobile NON utilizziamo:
      *
-     * niente window.open()
-     * niente _blank
-     * niente popup artificiale
+     * window.open()
+     * target="_blank"
      *
-     * La navigazione parte direttamente dal click dell'utente.
+     * Questo evita la strategia più problematica
+     * soprattutto su iPhone / iPad quando WhatsApp
+     * viene aperto come applicazione esterna.
      */
 
-    window.location.href =
-      LINK_WHATSAPP;
+    window.location.assign(
+      LINK_WHATSAPP
+    );
 
   }
 
 
-  /* ============================================================
-     DESKTOP
-     ============================================================ */
+  /* =========================================================
+     STRATEGIA DESKTOP
+     ========================================================= */
 
   function aperturaDesktop() {
 
     /*
-     * Qui window.open viene eseguito DIRETTAMENTE
-     * dentro il click reale dell'utente.
+     * window.open viene eseguito direttamente all'interno
+     * del gesto dell'utente.
      *
-     * È il caso consentito dai moderni popup blocker.
+     * Non viene eseguito dentro setTimeout.
      */
 
     const schedaWhatsApp =
       window.open(
         LINK_WHATSAPP,
-        "_blank",
-        "noopener,noreferrer"
+        "_blank"
       );
 
 
     /*
-     * Se il browser accetta la nuova scheda:
-     *
-     * 1. WhatsApp rimane nella nuova scheda.
-     * 2. Questa scheda diventa Benvenuto.
+     * Se la nuova scheda è stata creata correttamente,
+     * questa scheda può diventare la pagina Benvenuto.
      */
 
     if (schedaWhatsApp) {
 
-      stato.textContent =
-        "WhatsApp aperto. Caricamento della pagina di benvenuto…";
-
-
       /*
-       * Piccolissimo differimento soltanto per permettere
-       * al browser di completare la creazione della scheda.
+       * Protezione tab-opener.
        *
-       * NON serve ad aggirare il popup blocker.
+       * Usiamo try/catch perché browser differenti possono
+       * gestire la proprietà opener in modo diverso.
        */
+
+      try {
+
+        schedaWhatsApp.opener = null;
+
+      } catch (errore) {
+
+        /*
+         * Nessuna azione necessaria.
+         */
+
+      }
+
+
+      stato.textContent =
+        "Apertura della community…";
+
 
       window.setTimeout(
         vaiAllaPaginaBenvenuto,
-        120
+        150
       );
+
 
       return;
 
@@ -531,12 +861,10 @@
 
 
     /*
-     * Popup bloccato:
+     * Se il popup è stato bloccato:
      *
-     * non lasciamo l'utente senza WhatsApp.
-     *
-     * Passiamo automaticamente alla stessa strategia
-     * sicura usata sui dispositivi mobili.
+     * niente errore per l'utente.
+     * Passiamo alla strategia sicura nella stessa scheda.
      */
 
     aperturaMobile();
@@ -544,18 +872,22 @@
   }
 
 
-  /* ============================================================
-     CLICK
-     ============================================================ */
+  /* =========================================================
+     CLICK PRINCIPALE
+     ========================================================= */
 
   pulsante.addEventListener(
     "click",
     function () {
 
       if (aperturaInCorso) {
+
         return;
+
       }
 
+
+      aperturaInCorso = true;
 
       pulsante.disabled = true;
 
@@ -574,29 +906,29 @@
   );
 
 
-  /* ============================================================
-     RITORNO DALL'APP SU MOBILE
-     ============================================================ */
+  /* =========================================================
+     RITORNO DALL'APP WHATSAPP
+     ========================================================= */
 
   document.addEventListener(
     "visibilitychange",
     function () {
 
       /*
-       * WhatsApp viene aperto come app esterna.
+       * Sequenza tipica:
        *
-       * Il browser normalmente passa:
+       * pagina visibile
+       *      ↓
+       * pagina hidden
+       *      ↓
+       * WhatsApp
+       *      ↓
+       * ritorno al browser
+       *      ↓
+       * pagina visible
        *
-       * visible
-       *    ↓
-       * hidden
-       *    ↓
-       * APP WHATSAPP
-       *    ↓
-       * visible
-       *
-       * Aspettiamo ESPLICITAMENTE di aver visto "hidden"
-       * prima di mandare l'utente alla pagina Benvenuto.
+       * Il redirect a Benvenuto avviene solo dopo
+       * che sappiamo che la pagina era realmente nascosta.
        */
 
       if (
@@ -612,7 +944,9 @@
 
         }
 
+
         return;
+
       }
 
 
@@ -630,20 +964,20 @@
   );
 
 
-  /* ============================================================
-     PAGESHOW / BFCACHE
-     ============================================================ */
+  /* =========================================================
+     SAFARI / BACK-FORWARD CACHE
+     ========================================================= */
 
   window.addEventListener(
     "pageshow",
     function (evento) {
 
       /*
-       * Safari/iOS utilizza molto il Back/Forward Cache.
+       * Safari usa spesso il BFCache.
        *
-       * Se questa pagina viene congelata mentre si apre WhatsApp
-       * e poi ripristinata, pageshow può essere il primo evento
-       * affidabile disponibile.
+       * Se la pagina viene ripristinata dalla cache
+       * dopo l'apertura di WhatsApp, questo evento
+       * offre un secondo percorso affidabile.
        */
 
       if (
@@ -659,20 +993,20 @@
   );
 
 
-  /* ============================================================
-     FOCUS - FALLBACK
-     ============================================================ */
+  /* =========================================================
+     FALLBACK FOCUS
+     ========================================================= */
 
   window.addEventListener(
     "focus",
     function () {
 
       /*
-       * Alcune WebView/browser non producono la sequenza
-       * visibilitychange esattamente come Safari.
+       * Alcuni browser / WebView producono visibilitychange
+       * in modo differente.
        *
-       * Usiamo focus solamente se sappiamo che la pagina
-       * era realmente diventata nascosta.
+       * Utilizziamo focus soltanto se sappiamo che la pagina
+       * era effettivamente diventata nascosta.
        */
 
       if (
@@ -688,25 +1022,9 @@
   );
 
 
-  /* ============================================================
-     RIPRISTINO DOPO BACK DEL BROWSER
-     ============================================================ */
-
-  /*
-   * Caso:
-   *
-   * WhatsApp non è installato.
-   *
-   * Il browser carica chat.whatsapp.com nella stessa scheda.
-   * Successivamente l'utente preme INDIETRO.
-   *
-   * La pagina ponte viene caricata/ripristinata e trova
-   * il marker ancora presente.
-   *
-   * Non facciamo però redirect immediato al primo caricamento:
-   * diamo al browser il tempo di determinare se questa pagina
-   * proviene dal BFCache.
-   */
+  /* =========================================================
+     RITORNO MANUALE DAL SITO WHATSAPP
+     ========================================================= */
 
   const markerEsistente =
     leggiMarker();
@@ -714,14 +1032,14 @@
 
   if (markerEsistente) {
 
-    /*
-     * Se il marker è presente da almeno 1 secondo,
-     * significa che non siamo nel click iniziale.
-     */
-
     const etaMarker =
       Date.now() - markerEsistente;
 
+
+    /*
+     * Evitiamo che il marker appena creato causi un redirect
+     * immediato durante il primo click.
+     */
 
     if (etaMarker > 1000) {
 
@@ -738,7 +1056,7 @@
           }
 
         },
-        100
+        150
       );
 
     }
@@ -752,3 +1070,4 @@
 
 </body>
 </html>
+```
